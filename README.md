@@ -24,12 +24,7 @@
 - **Baeldung Spring Boot Tutorials:** https://www.baeldung.com/spring-boot
 
 ## AI Chat Geschiedenis
-Dit project is ontwikkeld met behulp van AI-assistentie voor:
-- Opzetten van de projectstructuur
-- Implementeren van entities en repositories
-- Schrijven van controller logica
-- Maken van Thymeleaf templates
-- Integreren van email functionaliteit
+Dit project is voornamelijk ontwikkeld aan de hand van de cursusmateriaal op Canvas. AI-assistentie is beperkt gebruikt voor het opzetten van de projectstructuur en het debuggen van enkele problemen.
 
 ## Manual - Project Uitvoeren
 
