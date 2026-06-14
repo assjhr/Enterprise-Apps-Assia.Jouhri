@@ -1,7 +1,7 @@
 # Enterprise Apps - NGO Anderlecht Website
 
 ## Project Informatie
-- **Student:** [Jouw Voornaam.Achternaam]
+- **Student:** Assia Jouhri
 - **Project:** Enterprise Applications - Prototype NGO Website
 
 ## Gebruikte Libraries en Frameworks
