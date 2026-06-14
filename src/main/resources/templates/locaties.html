@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locaties</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+<div th:replace="~{fragments/layout :: menu}"></div>
+
+<main class="flex-grow container mx-auto p-8">
+    <h1 class="text-3xl font-bold mb-6">Locaties Beheren</h1>
+
+    <div class="bg-white shadow rounded p-6 mb-8 max-w-lg">
+        <h2 class="text-xl font-semibold mb-4">Nieuwe Locatie</h2>
+        <form th:action="@{/locaties}" th:object="${locatie}" method="post">
+            <div class="mb-4">
+                <label class="block mb-1">Naam</label>
+                <input type="text" th:field="*{naam}" class="border rounded w-full p-2" required>
+            </div>
+            <div class="mb-4">
+                <label class="block mb-1">Adres</label>
+                <input type="text" th:field="*{adres}" class="border rounded w-full p-2" required>
+            </div>
+            <div class="mb-4">
+                <label class="block mb-1">Capaciteit</label>
+                <input type="number" th:field="*{capaciteit}" class="border rounded w-full p-2" required>
+            </div>
+            <button type="submit" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Toevoegen</button>
+        </form>
+    </div>
+
+    <h2 class="text-xl font-semibold mb-4">Bestaande Locaties</h2>
+    <table class="w-full bg-white shadow rounded">
+        <thead class="bg-green-700 text-white">
+        <tr>
+            <th class="p-3 text-left">Naam</th>
+            <th class="p-3 text-left">Adres</th>
+            <th class="p-3 text-left">Capaciteit</th>
+            <th class="p-3 text-left">Acties</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="loc : ${locaties}" class="border-b">
+            <td class="p-3" th:text="${loc.naam}"></td>
+            <td class="p-3" th:text="${loc.adres}"></td>
+            <td class="p-3" th:text="${loc.capaciteit}"></td>
+            <td class="p-3">
+                <a th:href="@{/locaties/delete/{id}(id=${loc.id})}" class="text-red-600 hover:underline">Verwijder</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+<div th:replace="~{fragments/layout :: footer}"></div>
+
+</body>
+</html>

@@ -18,9 +18,9 @@
         <p><strong>Organisatie:</strong> <span th:text="${event.organisatie}"></span></p>
         <p><strong>Contact Email:</strong> <span th:text="${event.contactEmail}"></span></p>
         <p><strong>Omschrijving:</strong> <span th:text="${event.omschrijving}"></span></p>
-        <p><strong>Locatie:</strong> <span th:text="${event.locatie.naam}"></span></p>
-        <p><strong>Adres:</strong> <span th:text="${event.locatie.adres}"></span></p>
-        <p><strong>Capaciteit:</strong> <span th:text="${event.locatie.capaciteit}"></span> personen</p>
+        <p><strong>Locatie:</strong> <span th:if="${event.locatie != null}" th:text="${event.locatie.naam}"></span><span th:if="${event.locatie == null}">Niet opgegeven</span></p>
+        <p th:if="${event.locatie != null}"><strong>Adres:</strong> <span th:text="${event.locatie.adres}"></span></p>
+        <p th:if="${event.locatie != null}"><strong>Capaciteit:</strong> <span th:text="${event.locatie.capaciteit}"></span> personen</p>
     </div>
 
     <div class="mt-6">

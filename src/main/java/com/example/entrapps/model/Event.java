@@ -31,7 +31,6 @@ public class Event {
 
     @ManyToOne
     @JoinColumn(name = "locatie_id")
-    @NotNull
     private Locatie locatie;
 
     public Event() {
