@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+<div th:replace="~{fragments/layout :: menu}"></div>
+
+<main class="flex-grow container mx-auto p-8">
+    <h1 class="text-3xl font-bold mb-6">Contact</h1>
+
+    <div th:if="${sent}" class="bg-green-100 text-green-700 p-4 rounded mb-4">
+        Uw bericht is succesvol verzonden!
+    </div>
+
+    <form th:action="@{/contact}" th:object="${message}" method="post" class="bg-white shadow rounded p-6 max-w-lg">
+        <div class="mb-4">
+            <label class="block mb-1">Naam</label>
+            <input type="text" th:field="*{naam}" class="border rounded w-full p-2">
+            <span th:if="${#fields.hasErrors('naam')}" th:errors="*{naam}" class="text-red-600 text-sm"></span>
+        </div>
+
+        <div class="mb-4">
+            <label class="block mb-1">Email</label>
+            <input type="email" th:field="*{email}" class="border rounded w-full p-2">
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-red-600 text-sm"></span>
+        </div>
+
+        <div class="mb-4">
+            <label class="block mb-1">Bericht</label>
+            <textarea th:field="*{bericht}" rows="5" class="border rounded w-full p-2"></textarea>
+            <span th:if="${#fields.hasErrors('bericht')}" th:errors="*{bericht}" class="text-red-600 text-sm"></span>
+        </div>
+
+        <button type="submit" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Verzenden</button>
+    </form>
+</main>
+
+<div th:replace="~{fragments/layout :: footer}"></div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Over Ons</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+<div th:replace="~{fragments/layout :: menu}"></div>
+
+<main class="flex-grow container mx-auto p-8">
+    <h1 class="text-3xl font-bold mb-6">Over Ons</h1>
+
+    <div class="bg-white shadow rounded p-6 max-w-2xl space-y-4">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <h2 class="text-xl font-semibold mt-4">Adres</h2>
+        <p>Campus Kaai<br>Kaai 61<br>1070 Anderlecht</p>
+
+        <h2 class="text-xl font-semibold mt-4">Contact</h2>
+        <p>Email: info@ngo-anderlecht.be<br>Telefoon: +32 2 123 45 67</p>
+    </div>
+</main>
+
+<div th:replace="~{fragments/layout :: footer}"></div>
+
+</body>
+</html>
