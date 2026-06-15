@@ -14,7 +14,7 @@
     <h1 class="text-3xl font-bold mb-6">Laatste Evenementen</h1>
 
     <table class="w-full bg-white shadow rounded">
-        <thead class="bg-green-700 text-white">
+        <thead class="bg-pink-700 text-white">
         <tr>
             <th class="p-3 text-left">Titel</th>
             <th class="p-3 text-left">Organisatie</th>
@@ -26,14 +26,14 @@
             <td class="p-3" th:text="${event.titel}"></td>
             <td class="p-3" th:text="${event.organisatie}"></td>
             <td class="p-3">
-                <a th:href="@{/details/{id}(id=${event.id})}" class="text-green-700 hover:underline">Bekijk</a>
+                <a th:href="@{/details/{id}(id=${event.id})}" class="text-pink-700 hover:underline">Bekijk</a>
             </td>
         </tr>
         </tbody>
     </table>
 
     <div class="mt-6">
-        <a th:href="@{/new}" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Nieuw Evenement Toevoegen</a>
+        <a th:href="@{/new}" class="bg-pink-700 text-white px-4 py-2 rounded hover:bg-pink-800">Nieuw Evenement Toevoegen</a>
     </div>
 </main>
 

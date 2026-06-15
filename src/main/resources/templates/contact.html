@@ -13,7 +13,7 @@
 <main class="flex-grow container mx-auto p-8">
     <h1 class="text-3xl font-bold mb-6">Contact</h1>
 
-    <div th:if="${sent}" class="bg-green-100 text-green-700 p-4 rounded mb-4">
+    <div th:if="${sent}" class="bg-pink-100 text-pink-700 p-4 rounded mb-4">
         Uw bericht is succesvol verzonden!
     </div>
 
@@ -36,7 +36,7 @@
             <span th:if="${#fields.hasErrors('bericht')}" th:errors="*{bericht}" class="text-red-600 text-sm"></span>
         </div>
 
-        <button type="submit" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Verzenden</button>
+        <button type="submit" class="bg-pink-700 text-white px-4 py-2 rounded hover:bg-pink-800">Verzenden</button>
     </form>
 </main>
 
