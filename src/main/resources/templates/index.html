@@ -11,11 +11,11 @@
 <div th:replace="~{fragments/layout :: menu}"></div>
 
 <!-- Hero Section -->
-<section class="bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 text-white py-16">
+<section class="bg-pink-500 text-white py-16">
     <div class="container mx-auto px-6 text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">Welkom bij NGO Anderlecht</h1>
         <p class="text-xl md:text-2xl opacity-90 mb-8">Samen bouwen we een sterkere gemeenschap</p>
-        <a th:href="@{/new}" class="inline-block bg-white text-purple-600 px-8 py-3 rounded-full font-semibold text-lg hover:bg-pink-100 transition-all transform hover:scale-105 shadow-lg">
+        <a th:href="@{/new}" class="inline-block bg-white text-pink-600 px-8 py-3 rounded-full font-semibold text-lg hover:bg-pink-100 transition-all transform hover:scale-105 shadow-lg">
             Bekijk Evenementen
         </a>
     </div>
@@ -24,14 +24,14 @@
 <main class="flex-grow container mx-auto px-6 py-12">
     <div class="flex justify-between items-center mb-8">
         <h2 class="text-3xl font-bold text-gray-800">Laatste Evenementen</h2>
-        <a th:href="@{/new}" class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all transform hover:scale-105">
+        <a th:href="@{/new}" class="bg-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all transform hover:scale-105">
             + Nieuw Evenement
         </a>
     </div>
 
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <div th:each="event : ${events}" class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 overflow-hidden">
-            <div class="bg-gradient-to-r from-pink-500 to-purple-600 h-2"></div>
+            <div class="bg-pink-500 h-2"></div>
             <div class="p-6">
                 <h3 class="text-xl font-bold text-gray-800 mb-2" th:text="${event.titel}"></h3>
                 <p class="text-purple-600 font-medium mb-4" th:text="${event.organisatie}"></p>
