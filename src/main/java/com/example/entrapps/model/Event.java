@@ -36,6 +36,15 @@ public class Event {
     public Event() {
     }
 
+    public Event(LocalDateTime tijdstip, String titel, String omschrijving, String organisatie, String contactEmail, Locatie locatie) {
+        this.tijdstip = tijdstip;
+        this.titel = titel;
+        this.omschrijving = omschrijving;
+        this.organisatie = organisatie;
+        this.contactEmail = contactEmail;
+        this.locatie = locatie;
+    }
+
     public Long getId() {
         return id;
     }
