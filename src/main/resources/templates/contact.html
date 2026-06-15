@@ -6,38 +6,55 @@
     <title>Contact</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 min-h-screen flex flex-col">
+<body class="bg-gray-50 min-h-screen flex flex-col">
 
 <div th:replace="~{fragments/layout :: menu}"></div>
 
-<main class="flex-grow container mx-auto p-8">
-    <h1 class="text-3xl font-bold mb-6">Contact</h1>
+<main class="flex-grow container mx-auto px-6 py-12">
+    <div class="max-w-2xl mx-auto">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="bg-gradient-to-r from-pink-500 to-purple-600 p-8">
+                <h1 class="text-3xl font-bold text-white">Contact</h1>
+                <p class="text-pink-100 mt-2">Stuur ons een bericht</p>
+            </div>
 
-    <div th:if="${sent}" class="bg-pink-100 text-pink-700 p-4 rounded mb-4">
-        Uw bericht is succesvol verzonden!
+            <div th:if="${sent}" class="bg-green-50 border-l-4 border-green-500 p-6 m-8 rounded">
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    <div>
+                        <h3 class="font-semibold text-green-800">Bericht verzonden!</h3>
+                        <p class="text-green-700">Bedankt voor uw bericht. We nemen zo snel mogelijk contact met u op.</p>
+                    </div>
+                </div>
+            </div>
+
+            <form th:action="@{/contact}" th:object="${message}" method="post" class="p-8 space-y-6">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Naam *</label>
+                    <input type="text" th:field="*{naam}" class="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-purple-500 focus:outline-none transition-colors" placeholder="Uw naam">
+                    <span th:if="${#fields.hasErrors('naam')}" th:errors="*{naam}" class="text-red-500 text-sm mt-1"></span>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
+                    <input type="email" th:field="*{email}" class="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-purple-500 focus:outline-none transition-colors" placeholder="uw@email.be">
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-red-500 text-sm mt-1"></span>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Bericht *</label>
+                    <textarea th:field="*{bericht}" rows="6" class="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-purple-500 focus:outline-none transition-colors" placeholder="Uw bericht..."></textarea>
+                    <span th:if="${#fields.hasErrors('bericht')}" th:errors="*{bericht}" class="text-red-500 text-sm mt-1"></span>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105">
+                    Versturen
+                </button>
+            </form>
+        </div>
     </div>
-
-    <form th:action="@{/contact}" th:object="${message}" method="post" class="bg-white shadow rounded p-6 max-w-lg">
-        <div class="mb-4">
-            <label class="block mb-1">Naam</label>
-            <input type="text" th:field="*{naam}" class="border rounded w-full p-2">
-            <span th:if="${#fields.hasErrors('naam')}" th:errors="*{naam}" class="text-red-600 text-sm"></span>
-        </div>
-
-        <div class="mb-4">
-            <label class="block mb-1">Email</label>
-            <input type="email" th:field="*{email}" class="border rounded w-full p-2">
-            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-red-600 text-sm"></span>
-        </div>
-
-        <div class="mb-4">
-            <label class="block mb-1">Bericht</label>
-            <textarea th:field="*{bericht}" rows="5" class="border rounded w-full p-2"></textarea>
-            <span th:if="${#fields.hasErrors('bericht')}" th:errors="*{bericht}" class="text-red-600 text-sm"></span>
-        </div>
-
-        <button type="submit" class="bg-pink-700 text-white px-4 py-2 rounded hover:bg-pink-800">Verzenden</button>
-    </form>
 </main>
 
 <div th:replace="~{fragments/layout :: footer}"></div>

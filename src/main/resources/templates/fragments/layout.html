@@ -1,19 +1,56 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<nav th:fragment="menu" class="bg-pink-800 text-white p-4 flex justify-between items-center">
-    <a th:href="@{/}" class="text-xl font-bold">NGO Anderlecht</a>
-    <div class="space-x-4">
-        <a th:href="@{/}" class="hover:underline">Home</a>
-        <a th:href="@{/new}" class="hover:underline">Nieuw Event</a>
-        <a th:href="@{/locaties}" class="hover:underline">Locaties</a>
-        <a th:href="@{/about}" class="hover:underline">Over Ons</a>
-        <a th:href="@{/contact}" class="hover:underline">Contact</a>
+<nav th:fragment="menu" class="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 text-white shadow-lg">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a th:href="@{/}" class="text-2xl font-bold tracking-wide flex items-center gap-2">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+            </svg>
+            NGO Anderlecht
+        </a>
+        <div class="hidden md:flex space-x-6 items-center">
+            <a th:href="@{/}" class="hover:text-pink-200 transition-colors font-medium">Home</a>
+            <a th:href="@{/new}" class="hover:text-pink-200 transition-colors font-medium">Nieuw Event</a>
+            <a th:href="@{/locaties}" class="hover:text-pink-200 transition-colors font-medium">Locaties</a>
+            <a th:href="@{/about}" class="hover:text-pink-200 transition-colors font-medium">Over Ons</a>
+            <a th:href="@{/contact}" class="bg-white text-purple-600 px-4 py-2 rounded-full font-semibold hover:bg-pink-100 transition-colors">Contact</a>
+        </div>
+        <div class="md:hidden">
+            <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-purple-700 px-6 py-4 space-y-3">
+        <a th:href="@{/}" class="block hover:text-pink-200">Home</a>
+        <a th:href="@{/new}" class="block hover:text-pink-200">Nieuw Event</a>
+        <a th:href="@{/locaties}" class="block hover:text-pink-200">Locaties</a>
+        <a th:href="@{/about}" class="block hover:text-pink-200">Over Ons</a>
+        <a th:href="@{/contact}" class="block hover:text-pink-200">Contact</a>
     </div>
 </nav>
 
-<footer th:fragment="footer" class="bg-gray-800 text-white text-center p-4 mt-8">
-    <p>&copy; 2026 NGO Anderlecht. Alle rechten voorbehouden.</p>
+<footer th:fragment="footer" class="bg-gray-900 text-gray-300 mt-16">
+    <div class="container mx-auto px-6 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <h3 class="text-white font-bold text-lg mb-2">NGO Anderlecht</h3>
+                <p class="text-sm">Campus Kaai, Kaai 61, 1070 Anderlecht</p>
+                <p class="text-sm">info@ngo-anderlecht.be</p>
+            </div>
+            <div class="flex space-x-4">
+                <a th:href="@{/}" class="hover:text-pink-400 transition-colors">Home</a>
+                <a th:href="@{/about}" class="hover:text-pink-400 transition-colors">Over Ons</a>
+                <a th:href="@{/contact}" class="hover:text-pink-400 transition-colors">Contact</a>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-6 pt-6 text-center text-sm">
+            <p>&copy; 2026 NGO Anderlecht. Alle rechten voorbehouden.</p>
+        </div>
+    </div>
 </footer>
 
 </html>
