@@ -9,9 +9,11 @@
 - **Spring Web MVC** - Voor het afhandelen van HTTP requests
 - **Spring Data JPA** - Voor database toegang en ORM
 - **Spring Boot Starter Validation** - Voor form validatie
+- **Spring Boot Starter Mail** - Voor email versturen
 - **Thymeleaf** - Template engine voor dynamische HTML pagina's
 - **MySQL Connector** - Database driver voor MySQL
 - **Tailwind CSS** - CSS framework voor styling (via CDN)
+- **Mailtrap.io** - Service voor het testen van email versturen
 
 ## Documentatie en Tutorials
 - **Spring Boot Official Documentation:** https://spring.io/projects/spring-boot
@@ -37,12 +39,19 @@ Dit project is voornamelijk ontwikkeld aan de hand van de cursusmateriaal op Can
 CREATE DATABASE ngo_events;
 ```
 
-### Stap 2: Project Bouwen en Starten
+### Stap 2: Mailtrap.io Configureren
+1. Ga naar https://mailtrap.io en maak een gratis account aan
+2. Maak een nieuwe inbox aan
+3. Kopieer je SMTP credentials (username en password)
+4. Open `src/main/resources/application.properties`
+5. Vervang `VUL_HIER_JE_MAILTRAP_USERNAME_IN` en `VUL_HIER_JE_MAILTRAP_PASSWORD_IN` met je credentials
+
+### Stap 3: Project Bouwen en Starten
 ```bash
 ./gradlew bootRun
 ```
 
-### Stap 3: Applicatie Gebruiken
+### Stap 4: Applicatie Gebruiken
 Open je browser en ga naar: http://localhost:8080
 
 ### Pagina's
@@ -84,11 +93,12 @@ src/main/resources/
 - Evenementen bekijken (laatste 10)
 - Nieuwe evenementen toevoegen met validatie
 - Details van evenementen bekijken
-- Contactformulier met validatie
+- Contactformulier met email versturen via Mailtrap.io
 - Responsive design met Tailwind CSS
 - Herbruikbare menu en footer via Thymeleaf fragments
 
 ## Opmerkingen
 - Zorg dat MySQL draait voordat je de applicatie start
 - De database tabellen worden automatisch aangemaakt door Hibernate
-- Het contactformulier toont een bevestiging na succesvolle verzending
+- Emails worden via mailtrap.io fictief verstuurd (komen niet echt aan)
+- Vul je Mailtrap credentials in application.properties voordat je het contactformulier test

@@ -5,6 +5,7 @@ import com.example.entrapps.model.Event;
 import com.example.entrapps.model.Locatie;
 import com.example.entrapps.repository.EventRepository;
 import com.example.entrapps.repository.LocatieRepository;
+import com.example.entrapps.service.MailService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,9 @@ public class EventController {
 
     @Autowired
     private LocatieRepository locatieRepository;
+
+    @Autowired
+    private MailService mailService;
 
     @GetMapping("/")
     public String index(Model model) {
@@ -75,6 +79,7 @@ public class EventController {
         if (result.hasErrors()) {
             return "contact";
         }
+        mailService.sendContactEmail(message.getEmail(), message.getNaam(), message.getBericht());
         model.addAttribute("sent", true);
         return "contact";
     }
