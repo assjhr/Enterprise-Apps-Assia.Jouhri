@@ -52,6 +52,12 @@ public class EventController {
         return "details";
     }
 
+    @GetMapping("/delete/{id}")
+    public String deleteEvent(@PathVariable Long id) {
+        eventRepository.deleteById(id);
+        return "redirect:/";
+    }
+
     @GetMapping("/about")
     public String about() {
         return "about";
